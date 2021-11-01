@@ -18,17 +18,14 @@ for r, d, f in os.walk(cwd):
             print()
             mp3Count += 1
             filePath = os.path.join(r, file)
-            #print(file)
             audio = MP3(filePath, ID3=EasyID3)
             try:
-                print(audio["title"])
+                print(f"{fileCount}. {audio['title']}" )
             except KeyError:
                 print(file)
             totalRuntimeSecs += audio.info.length
-            print(round(audio.info.length/60, 2), "minutes")
+            print(f"{round(audio.info.length/60, 2)} minutes.")
 
-print("File/MP3 count:", fileCount, "/", mp3Count)
-print("Audio runtime total:")
-#print(round(totalRuntimeSecs/60, 1), "minutes.")
-print(round(totalRuntimeSecs/60/60, 2), "hours.")
-print("Elapsed:", round(time.perf_counter() - startTime, 1), "s")
+print(f"File/MP3 count: {fileCount}/{mp3Count}.")
+print(f"Audio runtime total: {round(totalRuntimeSecs/60/60, 2)} hours.")
+print(f"Elapsed: {round(time.perf_counter() - startTime, 1)} seconds.")
