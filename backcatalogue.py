@@ -26,6 +26,6 @@ for r, d, f in os.walk(cwd):
             totalRuntimeSecs += audio.info.length
             print(f"{round(audio.info.length/60, 2)} minutes.")
 
-print(f"File/MP3 count: {fileCount}/{mp3Count}.")
+print(f"\nFile/MP3 count: {fileCount}/{mp3Count}.")
 print(f"Audio runtime total: {round(totalRuntimeSecs/60/60, 2)} hours.")
 print(f"Elapsed: {round(time.perf_counter() - startTime, 1)} seconds.")
