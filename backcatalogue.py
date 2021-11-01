@@ -22,7 +22,7 @@ for r, d, f in os.walk(cwd):
             try:
                 print(f"{fileCount}. {audio['title']}" )
             except KeyError:
-                print(file)
+                print(f"{fileCount}. {file}" )
             totalRuntimeSecs += audio.info.length
             print(f"{round(audio.info.length/60, 2)} minutes.")
 
